@@ -1,7 +1,7 @@
 # Study-mate 环境变量
 
 ```env
-PORT=7001
+PORT=7003
 API_PREFIX=/alibaba-ai/v1
 DB_HOST=localhost
 DB_USER=studymate

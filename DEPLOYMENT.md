@@ -13,7 +13,7 @@ npm install
 ## 3. 配置环境变量
 
 ```env
-PORT=7001
+PORT=7003
 API_PREFIX=/alibaba-ai/v1
 DB_HOST=localhost
 DB_USER=studymate
@@ -40,5 +40,5 @@ pm2 save
 ## 6. 服务检查
 
 ```bash
-curl http://服务器地址:7001/health
+curl http://服务器地址:7003/health
 ```

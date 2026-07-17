@@ -5,7 +5,7 @@
 确认 `baseUrl` 指向服务器：
 
 ```js
-baseUrl: 'http://你的服务器IP:7001/alibaba-ai/v1'
+baseUrl: 'http://你的服务器IP:7003/alibaba-ai/v1'
 ```
 
 后端需要开启：

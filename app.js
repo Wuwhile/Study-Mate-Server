@@ -9,7 +9,7 @@ const messageRoutes = require('./routes/message');
 const conversationRoutes = require('./routes/conversation');
 
 const app = express();
-const PORT = process.env.PORT || 7001;
+const PORT = process.env.PORT || 7003;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
