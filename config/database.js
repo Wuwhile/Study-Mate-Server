@@ -15,10 +15,10 @@ const pool = mysql.createPool({
 
 // 测试连接
 pool.getConnection().then(conn => {
-  console.log('✅ 数据库连接成功');
+  console.log('数据库连接成功');
   conn.release();
 }).catch(err => {
-  console.error('❌ 数据库连接失败:', err);
+  console.error('数据库连接失败:', err);
 });
 
 module.exports = pool;
