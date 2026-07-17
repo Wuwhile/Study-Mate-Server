@@ -1,9 +1,6 @@
 const pool = require('../config/database');
 
 class Appointment {
-  /**
-   * 保存预约申请
-   */
   static async create(data) {
     const {
       userId,
@@ -19,7 +16,7 @@ class Appointment {
     } = data;
 
     const sql = `
-      INSERT INTO appointments 
+      INSERT INTO appointments
       (user_id, doctor_id, doctor_name, patient_name, patient_age, patient_gender, patient_phone, consultation_content, urgency, time_preference)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
@@ -39,17 +36,14 @@ class Appointment {
       ]);
       return result.insertId;
     } catch (error) {
-      console.error('保存预约申请失败:', error);
+      console.error('保存学习规划预约失败:', error);
       throw error;
     }
   }
 
-  /**
-   * 获取所有预约列表
-   */
   static async findAll() {
     const sql = `
-      SELECT 
+      SELECT
         id,
         doctor_id as doctorId,
         doctor_name as doctorName,
@@ -70,17 +64,14 @@ class Appointment {
       const [rows] = await pool.execute(sql);
       return rows;
     } catch (error) {
-      console.error('查询预约列表失败:', error);
+      console.error('查询学习规划预约列表失败:', error);
       throw error;
     }
   }
 
-  /**
-   * 根据医生 ID 获取预约列表
-   */
   static async findByDoctorId(doctorId) {
     const sql = `
-      SELECT 
+      SELECT
         id,
         doctor_id as doctorId,
         doctor_name as doctorName,
@@ -102,17 +93,14 @@ class Appointment {
       const [rows] = await pool.execute(sql, [doctorId]);
       return rows;
     } catch (error) {
-      console.error('查询医生预约列表失败:', error);
+      console.error('查询导师预约列表失败:', error);
       throw error;
     }
   }
 
-  /**
-   * 根据患者电话获取预约列表
-   */
   static async findByPatientPhone(patientPhone) {
     const sql = `
-      SELECT 
+      SELECT
         id,
         doctor_id as doctorId,
         doctor_name as doctorName,
@@ -134,17 +122,14 @@ class Appointment {
       const [rows] = await pool.execute(sql, [patientPhone]);
       return rows;
     } catch (error) {
-      console.error('查询患者预约列表失败:', error);
+      console.error('查询学习者预约列表失败:', error);
       throw error;
     }
   }
 
-  /**
-   * 根据用户 ID 获取预约列表
-   */
   static async findByUserId(userId) {
     const sql = `
-      SELECT 
+      SELECT
         id,
         user_id as userId,
         doctor_id as doctorId,
@@ -172,12 +157,9 @@ class Appointment {
     }
   }
 
-  /**
-   * 根据 ID 获取预约详情
-   */
   static async findById(id) {
     const sql = `
-      SELECT 
+      SELECT
         id,
         user_id as userId,
         doctor_id as doctorId,
@@ -205,18 +187,10 @@ class Appointment {
     }
   }
 
-  /**
-   * 更新预约申请
-   */
   static async update(id, data) {
-    const {
-      status,
-      notes,
-      timePreference
-    } = data;
-
+    const { status, notes, timePreference } = data;
     const sql = `
-      UPDATE appointments 
+      UPDATE appointments
       SET status = ?, notes = ?, time_preference = ?
       WHERE id = ?
     `;
@@ -225,14 +199,11 @@ class Appointment {
       const [result] = await pool.execute(sql, [status, notes, timePreference, id]);
       return result.affectedRows > 0;
     } catch (error) {
-      console.error('更新预约申请失败:', error);
+      console.error('更新学习规划预约失败:', error);
       throw error;
     }
   }
 
-  /**
-   * 删除预约申请
-   */
   static async deleteById(id) {
     const sql = 'DELETE FROM appointments WHERE id = ?';
 
@@ -240,14 +211,11 @@ class Appointment {
       const [result] = await pool.execute(sql, [id]);
       return result.affectedRows > 0;
     } catch (error) {
-      console.error('删除预约申请失败:', error);
+      console.error('删除学习规划预约失败:', error);
       throw error;
     }
   }
 
-  /**
-   * 获取预约统计
-   */
   static async count(filters = {}) {
     let sql = 'SELECT COUNT(*) as count FROM appointments WHERE 1=1';
     const params = [];
@@ -266,7 +234,7 @@ class Appointment {
       const [rows] = await pool.execute(sql, params);
       return rows[0].count;
     } catch (error) {
-      console.error('统计预约数失败:', error);
+      console.error('统计学习规划预约失败:', error);
       throw error;
     }
   }

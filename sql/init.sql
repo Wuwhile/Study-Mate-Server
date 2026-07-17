@@ -1,7 +1,7 @@
 -- 创建数据库
-CREATE DATABASE IF NOT EXISTS warm_mate CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS study_mate CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-USE warm_mate;
+USE study_mate;
 
 -- 用户表
 CREATE TABLE IF NOT EXISTS users (
@@ -62,11 +62,11 @@ CREATE TABLE IF NOT EXISTS login_logs (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='登录日志表';
 
 -- 创建应用用户（用于应用连接）
-CREATE USER IF NOT EXISTS 'warmmate'@'localhost' IDENTIFIED BY 'warmmate123@';
-GRANT ALL PRIVILEGES ON warm_mate.* TO 'warmmate'@'localhost';
+CREATE USER IF NOT EXISTS 'studymate'@'localhost' IDENTIFIED BY 'studymate123@';
+GRANT ALL PRIVILEGES ON study_mate.* TO 'studymate'@'localhost';
 FLUSH PRIVILEGES;
 
 -- 允许远程连接的用户（生产环境请修改IP和密码）
-CREATE USER IF NOT EXISTS 'warmmate'@'%' IDENTIFIED BY 'warmmate123@';
-GRANT ALL PRIVILEGES ON warm_mate.* TO 'warmmate'@'%';
+CREATE USER IF NOT EXISTS 'studymate'@'%' IDENTIFIED BY 'studymate123@';
+GRANT ALL PRIVILEGES ON study_mate.* TO 'studymate'@'%';
 FLUSH PRIVILEGES;

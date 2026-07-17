@@ -1,7 +1,7 @@
 {
-  "name": "warm-mate-server",
+  "name": "study-mate-server",
   "version": "1.0.0",
-  "description": "Warm-Mate Backend Server - User Account Management",
+  "description": "Study-mate backend server for personalized learning resources and multi-agent study workflows",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,8 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "mental-health",
-    "questionnaire",
+    "learning",
+    "multi-agent",
+    "resource-generation",
     "user-management"
   ],
   "author": "",
